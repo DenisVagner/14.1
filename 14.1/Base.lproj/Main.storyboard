@@ -91,7 +91,7 @@
             </objects>
             <point key="canvasLocation" x="395.6521739130435" y="-638.16964285714278"/>
         </scene>
-        <!--View Controller-->
+        <!--ToDo List-->
         <scene sceneID="9tV-YN-Upl">
             <objects>
                 <viewController id="bAD-sO-wmm" customClass="bViewController" customModule="_4_1" customModuleProvider="target" sceneMemberID="viewController">
@@ -99,27 +99,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hs1-Fv-NA3">
-                                <rect key="frame" x="20" y="84" width="332" height="34"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="332" id="WGL-zd-4uK"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wd5-98-84g">
-                                <rect key="frame" x="360" y="84" width="44" height="34"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="44" id="9HA-6g-Zqi"/>
-                                    <constraint firstAttribute="height" constant="34" id="FVd-yi-xji"/>
-                                </constraints>
-                                <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system"/>
-                                <connections>
-                                    <action selector="addButtonPressed:" destination="bAD-sO-wmm" eventType="touchUpInside" id="JMh-Fy-5ah"/>
-                                </connections>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="wKd-gR-TmQ">
-                                <rect key="frame" x="0.0" y="143" width="414" height="670"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ListTableViewCell" id="Pzo-de-bx5" customClass="ListTableViewCell" customModule="_4_1" customModuleProvider="target">
@@ -158,25 +139,34 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="wKd-gR-TmQ" firstAttribute="trailing" secondItem="iTr-uE-H78" secondAttribute="trailing" id="1XS-dA-KQZ"/>
-                            <constraint firstItem="iTr-uE-H78" firstAttribute="trailing" secondItem="wd5-98-84g" secondAttribute="trailing" constant="10" id="290-c2-Rkf"/>
-                            <constraint firstItem="Hs1-Fv-NA3" firstAttribute="top" secondItem="iTr-uE-H78" secondAttribute="top" constant="40" id="54o-b9-iS5"/>
-                            <constraint firstItem="wKd-gR-TmQ" firstAttribute="top" secondItem="Hs1-Fv-NA3" secondAttribute="bottom" constant="25" id="Ga0-bV-T2A"/>
-                            <constraint firstItem="Hs1-Fv-NA3" firstAttribute="leading" secondItem="iTr-uE-H78" secondAttribute="leading" constant="20" id="J8A-N7-3xS"/>
-                            <constraint firstItem="wd5-98-84g" firstAttribute="top" secondItem="iTr-uE-H78" secondAttribute="top" constant="40" id="Qqe-9e-nZD"/>
-                            <constraint firstItem="wd5-98-84g" firstAttribute="leading" secondItem="Hs1-Fv-NA3" secondAttribute="trailing" constant="8" id="j9z-Gz-AKM"/>
-                            <constraint firstItem="iTr-uE-H78" firstAttribute="bottom" secondItem="wKd-gR-TmQ" secondAttribute="bottom" id="ssD-JG-Pvb"/>
+                            <constraint firstItem="wKd-gR-TmQ" firstAttribute="top" secondItem="iTr-uE-H78" secondAttribute="top" id="dYv-u1-URu"/>
+                            <constraint firstItem="wKd-gR-TmQ" firstAttribute="bottom" secondItem="iTr-uE-H78" secondAttribute="bottom" id="ufH-UW-j2y"/>
                             <constraint firstItem="wKd-gR-TmQ" firstAttribute="leading" secondItem="iTr-uE-H78" secondAttribute="leading" id="ze8-qU-zgt"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="b.circle.fill" catalog="system" id="G1c-ME-MoU"/>
+                    <navigationItem key="navigationItem" title="ToDo List" id="8Cd-19-2Fs">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="XKK-rF-9Tv">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="wd5-98-84g">
+                                <rect key="frame" x="347.5" y="5" width="46.5" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="9HA-6g-Zqi"/>
+                                    <constraint firstAttribute="height" constant="34" id="FVd-yi-xji"/>
+                                </constraints>
+                                <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system"/>
+                                <connections>
+                                    <action selector="addButtonPressed:" destination="bAD-sO-wmm" eventType="touchUpInside" id="JMh-Fy-5ah"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="wKd-gR-TmQ" id="tdC-53-XZF"/>
-                        <outlet property="taskInputTextField" destination="Hs1-Fv-NA3" id="cYp-Tf-mdi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1zS-6V-bdb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1198.5507246376812" y="-363.61607142857139"/>
+            <point key="canvasLocation" x="2108.695652173913" y="-363.61607142857139"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="egA-Dr-wLD">
@@ -222,7 +212,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="nqP-rq-xb4"/>
-                        <segue destination="bAD-sO-wmm" kind="relationship" relationship="viewControllers" id="YVm-W4-ffA"/>
+                        <segue destination="kUh-Ap-Ryb" kind="relationship" relationship="viewControllers" id="YVm-W4-ffA"/>
                         <segue destination="dSk-XU-fPZ" kind="relationship" relationship="viewControllers" id="a5k-qk-yaa"/>
                         <segue destination="MoS-L5-tnl" kind="relationship" relationship="viewControllers" id="ghx-HJ-aTh"/>
                     </connections>
@@ -230,6 +220,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vv5-VR-FfQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="18.840579710144929" y="84.375"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="uRg-3m-rlo">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kUh-Ap-Ryb" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="b.circle.fill" catalog="system" id="G1c-ME-MoU"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1dk-qV-9yU">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="bAD-sO-wmm" kind="relationship" relationship="rootViewController" id="2Dv-XP-56f"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aFw-C7-dIR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1198.5507246376812" y="-363.61607142857139"/>
         </scene>
     </scenes>
     <resources>

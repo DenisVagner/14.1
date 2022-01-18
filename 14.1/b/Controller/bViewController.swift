@@ -19,16 +19,24 @@ class bViewController: UIViewController {
     
     // Запись задачи в базу данных по нажатию +
     @IBAction func addButtonPressed(_ sender: Any) {
-        if taskInputTextField.text != "" {
-            let task = TaskList()
-            task.task = taskInputTextField.text!
-            try! realm.write({
-                realm.add(task)
-            })
-            
-            taskInputTextField.text = ""
-            tableView.reloadData()
+        
+        let alertController = UIAlertController(title: "Add task", message: "Add new task", preferredStyle: .alert)
+        alertController.addTextField { _ in  }
+        let addAction = UIAlertAction(title: "Add", style: .default) { action in
+            let textField = alertController.textFields?.first
+            if let newTask = textField?.text {
+                let task = TaskList()
+                task.task = newTask
+                try! self.realm.write({
+                    self.realm.add(task)
+                    self.tableView.reloadData()
+                })
+            }
         }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in  }
+        alertController.addAction(addAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true, completion: nil)
     }
 }
 
@@ -48,7 +56,7 @@ extension bViewController: UITableViewDataSource, UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-        // Удаление ячейки по свайпу влево
+    // Удаление ячейки по свайпу влево
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let editingRow = tasks[indexPath.row]
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { _, _, complete in
