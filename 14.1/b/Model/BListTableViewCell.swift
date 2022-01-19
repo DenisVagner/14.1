@@ -1,7 +1,7 @@
 
 import UIKit
 
-class ListTableViewCell: UITableViewCell {
+class BListTableViewCell: UITableViewCell {
 
     @IBOutlet weak var taskLabel: UILabel!
     

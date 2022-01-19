@@ -2,6 +2,6 @@
 import Foundation
 import RealmSwift
 
-class TaskList: Object {
+class BTaskList: Object {
     @objc dynamic var task = ""
 }

@@ -6,15 +6,14 @@ import RealmSwift
 
 class bViewController: UIViewController {
     
-    @IBOutlet weak var taskInputTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     
     let realm =  try! Realm()
-    var tasks: Results<TaskList>!
+    var tasks: Results<BTaskList>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tasks = realm.objects(TaskList.self)
+        tasks = realm.objects(BTaskList.self)
     }
     
     // Запись задачи в базу данных по нажатию +
@@ -25,7 +24,7 @@ class bViewController: UIViewController {
         let addAction = UIAlertAction(title: "Add", style: .default) { action in
             let textField = alertController.textFields?.first
             if let newTask = textField?.text {
-                let task = TaskList()
+                let task = BTaskList()
                 task.task = newTask
                 try! self.realm.write({
                     self.realm.add(task)
@@ -34,8 +33,9 @@ class bViewController: UIViewController {
             }
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in  }
-        alertController.addAction(addAction)
         alertController.addAction(cancelAction)
+        alertController.addAction(addAction)
+        
         present(alertController, animated: true, completion: nil)
     }
 }
@@ -46,7 +46,7 @@ extension bViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ListTableViewCell") as! ListTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ListTableViewCell") as! BListTableViewCell
         cell.taskLabel.text = tasks[indexPath.row].task
         return cell
     }
