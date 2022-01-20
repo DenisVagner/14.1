@@ -24,12 +24,15 @@ class bViewController: UIViewController {
         let addAction = UIAlertAction(title: "Add", style: .default) { action in
             let textField = alertController.textFields?.first
             if let newTask = textField?.text {
-                let task = BTaskList()
-                task.task = newTask
-                try! self.realm.write({
-                    self.realm.add(task)
-                    self.tableView.reloadData()
-                })
+                if textField?.text != "" {
+                    let task = BTaskList()
+                    task.task = newTask
+                    try! self.realm.write({
+                        self.realm.add(task)
+                        self.tableView.reloadData()
+                    })
+                }
+                
             }
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in  }
