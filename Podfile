@@ -7,6 +7,7 @@ target '14.1' do
 
   # Pods for 14.1
 pod 'RealmSwift', '~>10'
+pod 'Alamofire', '~> 5.4'
 
   target '14.1Tests' do
     inherit! :search_paths
