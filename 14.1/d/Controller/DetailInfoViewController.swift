@@ -13,6 +13,17 @@ class DetailInfoViewController: UIViewController {
     let networkRequest = NetworkRequest()
     
     
+    // Labels
+    @IBOutlet weak var cityNameLabel: UILabel!
+    @IBOutlet weak var currentTempLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var feelsLikeLabel: UILabel!
+    @IBOutlet weak var minTempLabel: UILabel!
+    @IBOutlet weak var maxTempLabel: UILabel!
+    @IBOutlet weak var windSpeedLabel: UILabel!
+    @IBOutlet weak var hamidityLabel: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loadCityInfoFromNetwork()
@@ -26,12 +37,24 @@ class DetailInfoViewController: UIViewController {
             switch result {
             case .success(let cityInfo):
                 self?.resultOneCity = cityInfo
-                print(cityInfo.main.temp - 273)
-                //self?.setLabels()
+                //print(cityInfo.main.temp - 273)
+                self?.setLabels()
             case .failure(let error):
                 print(error)
             }
         }
+    }
+    
+    // MARK: - Заполнение полей
+    func setLabels() {
+        cityNameLabel.text = currentCity
+        currentTempLabel.text = "\(Int(resultOneCity?.main.temp ?? 273) - 273) º"
+        descriptionLabel.text = resultOneCity?.weather[0].description
+        feelsLikeLabel.text = "\(Int(resultOneCity?.main.feels_like ?? 0) - 273) º"
+        minTempLabel.text = "\(Int(resultOneCity?.main.temp_min ?? 0) - 273) º"
+        maxTempLabel.text = "\(Int(resultOneCity?.main.temp_max ?? 0) - 273) º"
+        windSpeedLabel.text = "\(Int(resultOneCity?.wind.speed ?? 0)) м/с"
+        hamidityLabel.text = "\(Int(resultOneCity?.main.humidity ?? 0)) %"
     }
 
     /*
