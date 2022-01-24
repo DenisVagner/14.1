@@ -48,11 +48,11 @@ class DetailInfoViewController: UIViewController {
     // MARK: - Заполнение полей
     func setLabels() {
         cityNameLabel.text = currentCity
-        currentTempLabel.text = "\(Int(resultOneCity?.main.temp ?? 273) - 273) º"
+        currentTempLabel.text = "\(Int((resultOneCity?.main.temp ?? 273) - 273)) º"
         descriptionLabel.text = resultOneCity?.weather[0].description
-        feelsLikeLabel.text = "\(Int(resultOneCity?.main.feels_like ?? 0) - 273) º"
-        minTempLabel.text = "\(Int(resultOneCity?.main.temp_min ?? 0) - 273) º"
-        maxTempLabel.text = "\(Int(resultOneCity?.main.temp_max ?? 0) - 273) º"
+        feelsLikeLabel.text = "\(Int((resultOneCity?.main.feels_like ?? 0) - 273)) º"
+        minTempLabel.text = "\(Int((resultOneCity?.main.temp_min ?? 0) - 273)) º"
+        maxTempLabel.text = "\(Int((resultOneCity?.main.temp_max ?? 0) - 273)) º"
         windSpeedLabel.text = "\(Int(resultOneCity?.wind.speed ?? 0)) м/с"
         hamidityLabel.text = "\(Int(resultOneCity?.main.humidity ?? 0)) %"
     }

@@ -4,6 +4,7 @@ import UIKit
 class CityTableViewCell: UITableViewCell {
 
     @IBOutlet weak var cityNameLabel: UILabel!
+    @IBOutlet weak var curTempInFavLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

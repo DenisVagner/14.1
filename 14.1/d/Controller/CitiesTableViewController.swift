@@ -1,11 +1,11 @@
+//d) Сделать экран с показом погоды. Сделайте кеширование для текущей погоды и прогноза после загрузки с сервера, чтобы после перезапуска показывались последние сохранённые данные (пока идёт повторное обновление).
 
 import UIKit
 
 class CitiesTableViewController: UITableViewController {
     @IBOutlet var cityTableView: UITableView!
     
-    // Массив городов в избранном
-    var citiesInFavoriteArray: [String?] = ["London", "Paris", "Moscow"]
+    var citiesInFavoriteArray: [String?] = ["London", "Moscow", "Ankara", "Mexico", "no city"]
     var currentCity = ""
     var result: MainResponce? = nil
     var urlString: String {
@@ -14,6 +14,20 @@ class CitiesTableViewController: UITableViewController {
         }
     }
     let networkRequest = NetworkRequest()
+    
+    
+    // запрос данных по нажатому городу
+    func loadCityInfoFromNetwork() {
+        //activityIndicator.isHidden = false
+        networkRequest.doRequest(urlString: urlString) { [weak self] (result) in
+            switch result {
+            case .success(let cityInfo):
+                self?.result = cityInfo
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,13 +38,27 @@ class CitiesTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+    // MARK: - Add button
+    @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
+        let alertController = UIAlertController(title: "Добавить город", message: "Введите название города", preferredStyle: .alert)
+        alertController.addTextField()
+        let addAction = UIAlertAction(title: "Добавить", style: .default) { action in
+            let tf = alertController.textFields?.first
+            if tf?.text != "" {
+                self.citiesInFavoriteArray.append(tf?.text)
+                self.tableView.reloadData()
+            }
+        }
+        let cancelAction = UIAlertAction(title: "Отмена", style: .cancel)
+        alertController.addAction(addAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true, completion: nil)
+        
+    }
+    
 
     // MARK: - Table view data source
-
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 0
-//    }
     
     // Передача названия нажатого города на следующий экран
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -52,6 +80,17 @@ class CitiesTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CityTableViewCell", for: indexPath) as! CityTableViewCell
         
         cell.cityNameLabel.text = citiesInFavoriteArray[indexPath.row]
+        
+        
+        networkRequest.doRequest(urlString: "https://api.openweathermap.org/data/2.5/weather?q=\(cell.cityNameLabel.text ?? "Moscow")&appid=12208d4516ef042a2be4ddbfd1d9695d") { result in
+                switch result {
+                case .success(let cityInfo):
+                    cell.curTempInFavLabel.text = "\(Int(cityInfo.main.temp - 273)) º"
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        
             
 
         return cell
@@ -71,17 +110,17 @@ class CitiesTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
+            citiesInFavoriteArray.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
+    
 
     /*
     // Override to support rearranging the table view.

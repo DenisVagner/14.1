@@ -6,7 +6,7 @@ class NetworkRequest {
     func doRequest (urlString: String, completion: @escaping (Result<MainResponce, Error>) -> Void) {
         AF.request(urlString).responseJSON { response in
             guard let data = response.data else {
-                print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+                print("cant load data from network")
                 return
             }
             do {
@@ -16,7 +16,7 @@ class NetworkRequest {
                     completion(.success(res))
                 }
             } catch let jsonError {
-                print("ERROR!!!", jsonError)
+                print("error parsing json", jsonError)
                 completion(.failure(jsonError))
             }
         }
