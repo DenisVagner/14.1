@@ -10,11 +10,12 @@
 		4134B72C2795C98900E0118A /* 14.1.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4134B72A2795C98900E0118A /* 14.1.xcdatamodeld */; };
 		4134B72E2797D15C00E0118A /* CTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4134B72D2797D15C00E0118A /* CTableViewCell.swift */; };
 		4134B7302797D1C300E0118A /* CTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4134B72F2797D1C300E0118A /* CTableViewController.swift */; };
-		4134B732279B147800E0118A /* CitiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4134B731279B147800E0118A /* CitiesTableViewController.swift */; };
+		4134B732279B147800E0118A /* CitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4134B731279B147800E0118A /* CitiesViewController.swift */; };
 		4134B734279B14D100E0118A /* DetailInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4134B733279B14D100E0118A /* DetailInfoViewController.swift */; };
 		4134B736279B152100E0118A /* CityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4134B735279B152100E0118A /* CityTableViewCell.swift */; };
 		4134B738279B1A7500E0118A /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4134B737279B1A7500E0118A /* NetworkRequest.swift */; };
 		4134B73A279BE96400E0118A /* DataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4134B739279BE96400E0118A /* DataResponse.swift */; };
+		4134B73C27A06B6500E0118A /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4134B73B27A06B6500E0118A /* SearchTableViewCell.swift */; };
 		413E7C2D277ACE6000293746 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413E7C2C277ACE6000293746 /* AppDelegate.swift */; };
 		413E7C2F277ACE6000293746 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413E7C2E277ACE6000293746 /* SceneDelegate.swift */; };
 		413E7C31277ACE6000293746 /* aViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413E7C30277ACE6000293746 /* aViewController.swift */; };
@@ -54,11 +55,12 @@
 		4134B72B2795C98900E0118A /* 14.1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = 14.1.xcdatamodel; sourceTree = "<group>"; };
 		4134B72D2797D15C00E0118A /* CTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CTableViewCell.swift; path = 14.1/c/Model/CTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		4134B72F2797D1C300E0118A /* CTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTableViewController.swift; sourceTree = "<group>"; };
-		4134B731279B147800E0118A /* CitiesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesTableViewController.swift; sourceTree = "<group>"; };
+		4134B731279B147800E0118A /* CitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesViewController.swift; sourceTree = "<group>"; };
 		4134B733279B14D100E0118A /* DetailInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoViewController.swift; sourceTree = "<group>"; };
 		4134B735279B152100E0118A /* CityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityTableViewCell.swift; sourceTree = "<group>"; };
 		4134B737279B1A7500E0118A /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
 		4134B739279BE96400E0118A /* DataResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataResponse.swift; sourceTree = "<group>"; };
+		4134B73B27A06B6500E0118A /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		413E7C29277ACE6000293746 /* 14.1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 14.1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		413E7C2C277ACE6000293746 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		413E7C2E277ACE6000293746 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -298,7 +300,7 @@
 		41E1683B278DE75E00BF06C4 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				4134B731279B147800E0118A /* CitiesTableViewController.swift */,
+				4134B731279B147800E0118A /* CitiesViewController.swift */,
 				4134B733279B14D100E0118A /* DetailInfoViewController.swift */,
 			);
 			path = Controller;
@@ -308,6 +310,7 @@
 			isa = PBXGroup;
 			children = (
 				4134B735279B152100E0118A /* CityTableViewCell.swift */,
+				4134B73B27A06B6500E0118A /* SearchTableViewCell.swift */,
 				4134B737279B1A7500E0118A /* NetworkRequest.swift */,
 				4134B739279BE96400E0118A /* DataResponse.swift */,
 			);
@@ -581,8 +584,9 @@
 				4134B72C2795C98900E0118A /* 14.1.xcdatamodeld in Sources */,
 				4134B736279B152100E0118A /* CityTableViewCell.swift in Sources */,
 				41E16841278F4B7800BF06C4 /* BTaskList.swift in Sources */,
-				4134B732279B147800E0118A /* CitiesTableViewController.swift in Sources */,
+				4134B732279B147800E0118A /* CitiesViewController.swift in Sources */,
 				413E7C2F277ACE6000293746 /* SceneDelegate.swift in Sources */,
+				4134B73C27A06B6500E0118A /* SearchTableViewCell.swift in Sources */,
 				4134B73A279BE96400E0118A /* DataResponse.swift in Sources */,
 				4134B734279B14D100E0118A /* DetailInfoViewController.swift in Sources */,
 			);
@@ -764,6 +768,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8438N4J99G;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = 14.1/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -792,6 +797,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8438N4J99G;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = 14.1/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

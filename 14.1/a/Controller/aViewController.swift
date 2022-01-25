@@ -19,6 +19,9 @@ class aViewController: UIViewController {
         Base.shared.saveFullName(firstName: firstNameTextField.text ?? "", secondName: secondNameTextfield.text ?? "")
         firstNameTextField.text = ""
         secondNameTextfield.text = ""
+        
+        // Скрытие клавиатуры
+        self.view.endEditing(true)
     }
 }
 
