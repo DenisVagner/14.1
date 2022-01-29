@@ -10,7 +10,7 @@ class DetailInfoViewController: UIViewController {
             "https://api.openweathermap.org/data/2.5/weather?q=\(currentCity)&appid=12208d4516ef042a2be4ddbfd1d9695d"
         }
     }
-    let networkRequest = NetworkRequest()
+    let networkRequest = WeatherNetworkRequest()
     
     
     // Labels

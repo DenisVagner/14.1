@@ -5,6 +5,7 @@ import UIKit
 class SearchTableViewCell: UITableViewCell {
 
     @IBOutlet  weak var searchTextLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

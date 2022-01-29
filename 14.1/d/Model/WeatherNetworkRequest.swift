@@ -2,7 +2,7 @@
 import Foundation
 import Alamofire
 
-class NetworkRequest {
+class WeatherNetworkRequest {
     func doRequest (urlString: String, completion: @escaping (Result<MainResponce, Error>) -> Void) {
         AF.request(urlString).responseJSON { response in
             guard let data = response.data else {
