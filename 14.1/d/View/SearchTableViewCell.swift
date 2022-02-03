@@ -4,7 +4,8 @@ import UIKit
 
 class SearchTableViewCell: UITableViewCell {
 
-    @IBOutlet  weak var searchTextLabel: UILabel!
+    @IBOutlet  weak var searchCityTextLabel: UILabel!
+    @IBOutlet weak var searchLocationTextLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

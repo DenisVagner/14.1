@@ -1,14 +1,14 @@
 
 import Foundation
 
-struct SearchingCity: Decodable {
+struct SearchingCity1: Decodable {
     var name: String?
-    var local_names: LocalNames?
+    var local_names: LocalNames1?
     var country: String?
     var state: String?
 }
 
-struct LocalNames: Decodable {
+struct LocalNames1: Decodable {
     var ru: String?
     var en: String?
 }

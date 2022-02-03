@@ -6,7 +6,6 @@ import SwiftUI
 class CitiesViewController: UIViewController {
     @IBOutlet weak var citiesInFavoriteTableView: UITableView!
     @IBOutlet weak var citiesTableViewTopConstraint: NSLayoutConstraint!
-    @IBOutlet weak var searchBar: UISearchBar!
     
     var citiesInFavoriteArray: [String?] = ["London", "Moscow", "Ankara", "Mexico", "1"]
     var currentCity = ""
@@ -27,6 +26,7 @@ class CitiesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        citiesInFavoriteTableView.reloadData()
         
     }
     
@@ -95,19 +95,8 @@ extension CitiesViewController: UITableViewDataSource, UITableViewDelegate {
 }
 
 
-//
-//extension CitiesViewController: UISearchResultsUpdating {
-//    func updateSearchResults(for searchController: UISearchController) {
-//        findContentInSearchedText(searchController.searchBar.text!)
-//    }
-//    func findContentInSearchedText (_ searchText: String) {
-//        foundedCities = citiesInFavoriteArray.filter({ _ -> Bool in
-//            return citiesInFavoriteArray.contains(searchText.lowercased())
-//        })
-//    }
-//
-//}
-//
+
+
 
 
 
