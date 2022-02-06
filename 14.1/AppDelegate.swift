@@ -16,41 +16,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        let managedObject = SearchingCity()
+
         
-        // Установка значения атрибута
-        managedObject.name = "111"
+        // Создание и сохранение объекта
+//        let managedObject = CitiesInFavorite()
+//
+//        // Установка значения атрибута
+//        managedObject.name_en = "1112121"
+//
+//        // Запись объекта
+//        CoreDataManager.instance.saveContext()
+//
+//        // Извлечение записей
+//        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "CitiesInFavorite")
+//        fetchRequest.returnsObjectsAsFaults = false
+//
+//        do {
+//            let results = try CoreDataManager.instance.managedObjectContext.fetch(fetchRequest) //(fetchRequest) //self.managedObjectContext.execute(fetchRequest)
+//            for result in results as! [NSManagedObject] {
+//                print("name = \(result.value(forKey: "name_en") ?? "")")
+//            }
+//        } catch {
+//            print(error)
+//        }
         
-        // Извлечение значения атрибута
-        // let name = managedObject.entity.name
-        // print("name = \(name ?? "")")
         
-        // Запись объекта
-        CoreDataManager.instance.saveContext()
         
-        // Извлечение записей
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "SearchingCity")
-        fetchRequest.returnsObjectsAsFaults = false
         
-        do {
-            let results = try CoreDataManager.instance.managedObjectContext.fetch(fetchRequest) //(fetchRequest) //self.managedObjectContext.execute(fetchRequest)
-            for result in results as! [NSManagedObject] {
-                print("name = \(result.value(forKey: "name") ?? "")")
-            }
-        } catch {
-            print(error)
-        }
         
-        // let context = getContext()
-        //        let fetchRequest: NSFetchRequest<SearchingCity> = Task.fetchRequest()
-        //        if let objects = try? context.fetch(fetchRequest) {
-        //            context.delete(objects[indexPath.row])
-        //        }
-        //        do {
-        //            try context.save()
-        //        } catch let error as NSError {
-        //            print(error.localizedDescription)
-        //        }
+        
+        
+        
+        
+        
+        
         
         
         

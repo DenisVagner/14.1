@@ -12,7 +12,7 @@ class WeatherNetworkRequest {
             do {
                 let res = try JSONDecoder().decode(MainResponce.self, from: data)
                 DispatchQueue.main.async {
-                    print("network request secsess")
+                    print("network request success")
                     completion(.success(res))
                 }
             } catch let jsonError {

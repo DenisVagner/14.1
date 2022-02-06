@@ -2,6 +2,15 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/denisvagner/Documents/Skillbox/Project/14.1/14.1/d/Model/CoreData/CitiesInFavorite+CoreDataClass.swift">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/denisvagner/Documents/Skillbox/Project/14.1/14.1/d/Model/CoreData/CitiesInFavorite+CoreDataProperties.swift">
+   </FileRef>
+   <FileRef
+      location = "group:14.1/d/Model/CoreData/SearchingCity+CoreDataProperties.swift">
+   </FileRef>
+   <FileRef
       location = "group:14.1.xcodeproj">
    </FileRef>
    <FileRef

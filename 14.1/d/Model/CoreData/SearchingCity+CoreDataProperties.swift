@@ -1,8 +1,8 @@
 //
 //  SearchingCity+CoreDataProperties.swift
-//  14.1
+//  
 //
-//  Created by Денис Вагнер on 02.02.2022.
+//  Created by Денис Вагнер on 03.02.2022.
 //
 //
 
@@ -19,10 +19,6 @@ extension SearchingCity {
     @NSManaged public var country: String?
     @NSManaged public var name: String?
     @NSManaged public var state: String?
-    @NSManaged public var local_names: LocalNames?
-
-}
-
-extension SearchingCity : Identifiable {
+    
 
 }
