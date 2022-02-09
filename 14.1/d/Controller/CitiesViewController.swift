@@ -6,46 +6,74 @@ import CoreData
 class CitiesViewController: UIViewController {
     @IBOutlet weak var citiesInFavoriteTableView: UITableView!
     @IBOutlet weak var citiesTableViewTopConstraint: NSLayoutConstraint!
-    var citiesInFavoriteArray: [String?] = ["London", "Moscow", "Ankara", "Mexico", "1"]
+    @IBOutlet weak var activityInd: UIActivityIndicatorView!
+    
+    
+    //var citiesInFavoriteArray: [String?] = ["London", "Moscow", "Ankara", "Mexico", "1"]
     var currentCity = ""
     var result: MainResponce? = nil
-    //    var urlString: String {
-    //        get {
-    //            "https://api.openweathermap.org/data/2.5/weather?q=Moscow&appid=12208d4516ef042a2be4ddbfd1d9695d"
-    //        }
-    //    }
     let networkRequest = WeatherNetworkRequest()
     
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        updateTempCitiesInFavorite()
-        citiesInFavoriteTableView.reloadData()
+        self.updateData()
+     
+        
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.citiesInFavoriteTableView.reloadData()
     }
     
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
+    let myGroup = DispatchGroup()
+    
+//MARK: - Refresh button pressed
+    @IBAction func refreshButtonPressed(_ sender: Any) {
+        //let myQueue = DispatchQueue(label: "serial")
+        
+        updateData()
+    }
+    func updateData() {
+        activityInd.startAnimating()
+        let citiesData = self.getDataCitiesInFavorite()
+        myGroup.enter()
+        for city in citiesData as! [NSManagedObject] {
+           // myGroup.enter()
+       //     DispatchQueue.global(qos: .background).async {
+                self.networkRequest.doRequest(urlString: "https://api.openweathermap.org/data/2.5/weather?q=\(city.value(forKey: "name_en") ?? "")&appid=12208d4516ef042a2be4ddbfd1d9695d") { result in
+                    switch result {
+                    case .success(let cityInfo):
+                        city.setValue(String(Int(cityInfo.main.temp - 273)), forKey: "cur_temp")
+                        
+                        print("Context saved (temp): ", Int(cityInfo.main.temp - 273))
+                        self.citiesInFavoriteTableView.reloadData()
+                        print("Table reloaded")
+                    case .failure(let error):
+                        //cell1.curTempInFavLabel.text = "--"
+                        print(error)
+                    }
+                }
+           // }
+            
+            
+        }
+        CoreDataManager.instance.saveContext()
+        activityInd.stopAnimating()
+       // myGroup.leave()
+        
+    }
+    
     
     // Обновление данных о текущей погоде для городов в избранном
     func updateTempCitiesInFavorite() {
-        let citiesData = getDataCitiesInFavorite()
-        for city in citiesData as! [NSManagedObject] {
-            self.networkRequest.doRequest(urlString: "https://api.openweathermap.org/data/2.5/weather?q=\(city.value(forKey: "name_en") ?? "")&appid=12208d4516ef042a2be4ddbfd1d9695d") { result in
-                switch result {
-                case .success(let cityInfo):
-                    city.setValue(String(Int(cityInfo.main.temp - 273)), forKey: "cur_temp")
-                    CoreDataManager.instance.saveContext()
-                    
-                case .failure(let error):
-                    //cell1.curTempInFavLabel.text = "--"
-                    print(error)
-                }
-            }
-        }
-        self.citiesInFavoriteTableView.reloadData()
+
     }
     
     
@@ -56,7 +84,6 @@ class CitiesViewController: UIViewController {
                 let cityData = getDataCitiesInFavorite()
                 let object1 = cityData[index.row] as! NSManagedObject
                 vc.currentCity = object1.value(forKey: "name_en") as! String
-               // vc.currentCity = (citiesInFavoriteArray[index.row] ?? "")
             }
         }
         
@@ -95,10 +122,7 @@ extension CitiesViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let countOfCities = getDataCitiesInFavorite()
-        print("countofcities ",countOfCities.count )
         return countOfCities.count
-        
-        //        return citiesInFavoriteArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -107,22 +131,6 @@ extension CitiesViewController: UITableViewDataSource, UITableViewDelegate {
         let object1 = citiesData[indexPath.row] as! NSManagedObject
         cell1.cityNameLabel.text = object1.value(forKey: "name_en") as? String
         cell1.curTempInFavLabel.text = object1.value(forKey: "cur_temp") as? String
-//        print("cell1.curTempInFavLabel.text: ", cell1.curTempInFavLabel.text)
-//        print(object1.value(forKey: "name_en"), " - ", object1.value(forKey: "cur_temp"))
-        
-        
-        
-        
-        //        cell1.cityNameLabel.text = self.citiesInFavoriteArray[indexPath.row]
-        //        self.networkRequest.doRequest(urlString: "https://api.openweathermap.org/data/2.5/weather?q=\(self.citiesInFavoriteArray[indexPath.row] ?? "")&appid=12208d4516ef042a2be4ddbfd1d9695d") { result in
-        //            switch result {
-        //            case .success(let cityInfo):
-        //                cell1.curTempInFavLabel.text = "\(Int(cityInfo.main.temp - 273)) º"
-        //            case .failure(let error):
-        //                cell1.curTempInFavLabel.text = "--"
-        //                print(error)
-        //            }
-        //        }
         return cell1
     }
     
@@ -153,7 +161,7 @@ extension CitiesViewController: UITableViewDataSource, UITableViewDelegate {
 
 
 
-// Add button
+// Add button - добавить новый город
 //    @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
 //
 //        let alertController = UIAlertController(title: "Добавить город", message: "Введите название города", preferredStyle: .alert)

@@ -7,10 +7,7 @@ class SearchCityViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var searchTableView: UITableView!
     
-    //let cityVC = CitiesViewController()
     var foundedCities: [SearchingCity1] = []
-    
-    //let searchController = UISearchController()
     let networkRequest = SearchRequest()
     var searchingText = ""
     var urlString: String {
