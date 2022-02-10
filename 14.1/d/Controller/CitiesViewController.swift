@@ -8,8 +8,6 @@ class CitiesViewController: UIViewController {
     @IBOutlet weak var citiesTableViewTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var activityInd: UIActivityIndicatorView!
     
-    
-    //var citiesInFavoriteArray: [String?] = ["London", "Moscow", "Ankara", "Mexico", "1"]
     var currentCity = ""
     var result: MainResponce? = nil
     let networkRequest = WeatherNetworkRequest()
@@ -24,15 +22,16 @@ class CitiesViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.citiesInFavoriteTableView.reloadData()
+        print("table reloaded from viewDidAppear")
     }
     
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
     let myGroup = DispatchGroup()
+    
     
 //MARK: - Refresh button pressed
     @IBAction func refreshButtonPressed(_ sender: Any) {
@@ -42,8 +41,21 @@ class CitiesViewController: UIViewController {
     }
     func updateData() {
         activityInd.startAnimating()
-        let citiesData = self.getDataCitiesInFavorite()
         myGroup.enter()
+        updateTempCitiesInFavorite()
+        
+        
+        myGroup.leave()
+        self.citiesInFavoriteTableView.reloadData()
+        print("Table reloaded from func updateData")
+        activityInd.stopAnimating()
+    }
+    
+    
+    
+    // Обновление данных о текущей погоде для городов в избранном
+    func updateTempCitiesInFavorite() {
+        let citiesData = self.getDataCitiesInFavorite()
         for city in citiesData as! [NSManagedObject] {
            // myGroup.enter()
        //     DispatchQueue.global(qos: .background).async {
@@ -51,10 +63,10 @@ class CitiesViewController: UIViewController {
                     switch result {
                     case .success(let cityInfo):
                         city.setValue(String(Int(cityInfo.main.temp - 273)), forKey: "cur_temp")
-                        
+                        CoreDataManager.instance.saveContext()
                         print("Context saved (temp): ", Int(cityInfo.main.temp - 273))
                         self.citiesInFavoriteTableView.reloadData()
-                        print("Table reloaded")
+                        print("Table reloaded from updateTempCitiesInFavorite")
                     case .failure(let error):
                         //cell1.curTempInFavLabel.text = "--"
                         print(error)
@@ -64,16 +76,6 @@ class CitiesViewController: UIViewController {
             
             
         }
-        CoreDataManager.instance.saveContext()
-        activityInd.stopAnimating()
-       // myGroup.leave()
-        
-    }
-    
-    
-    // Обновление данных о текущей погоде для городов в избранном
-    func updateTempCitiesInFavorite() {
-
     }
     
     
@@ -147,6 +149,7 @@ extension CitiesViewController: UITableViewDataSource, UITableViewDelegate {
             let object1 = result[indexPath.row] as! NSManagedObject
             CoreDataManager.instance.managedObjectContext.delete(object1)
             CoreDataManager.instance.saveContext()
+            print("Data saved after deleting row")
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view

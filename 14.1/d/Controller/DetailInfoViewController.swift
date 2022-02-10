@@ -1,5 +1,6 @@
 
 import UIKit
+import CoreData
 
 class DetailInfoViewController: UIViewController {
     
@@ -23,9 +24,11 @@ class DetailInfoViewController: UIViewController {
     @IBOutlet weak var windSpeedLabel: UILabel!
     @IBOutlet weak var hamidityLabel: UILabel!
     
+    @IBOutlet weak var activIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        activIndicator.startAnimating()
         loadCityInfoFromNetwork()
         
     }
@@ -37,24 +40,76 @@ class DetailInfoViewController: UIViewController {
             switch result {
             case .success(let cityInfo):
                 self?.resultOneCity = cityInfo
-                //print(cityInfo.main.temp - 273)
+                print("Data gets")
+                sleep(3)
+                self?.setValuesSearchingCity()
                 self?.setLabels()
+                self?.activIndicator.stopAnimating()
             case .failure(let error):
                 print(error)
             }
         }
     }
     
+    // Установка значения атрибутов
+    func setValuesSearchingCity (){
+        let managedObjectOneCityInfo = OneCityInfo()
+        managedObjectOneCityInfo.city_name = currentCity
+        managedObjectOneCityInfo.temp = "\(Int((resultOneCity?.main.temp ?? 273) - 273)) º"
+        managedObjectOneCityInfo.temp_min = "\(Int((resultOneCity?.main.temp_min ?? 0) - 273)) º"
+        managedObjectOneCityInfo.temp_max = "\(Int((resultOneCity?.main.temp_max ?? 0) - 273)) º"
+        managedObjectOneCityInfo.feels_like = "\(Int((resultOneCity?.main.feels_like ?? 0) - 273)) º"
+        managedObjectOneCityInfo.wind_speed = "\(Int(resultOneCity?.wind.speed ?? 0)) м/с"
+        managedObjectOneCityInfo.humidity = "\(Int(resultOneCity?.main.humidity ?? 0)) %"
+        managedObjectOneCityInfo.main_description = resultOneCity?.weather[0].description
+        // Запись объекта
+        CoreDataManager.instance.saveContext()
+        print("Data saved OneCityInfo")
+    }
+    
+    // Извлечение записей
+    func getDataOneCityInfo() -> [NSFetchRequestResult] {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "OneCityInfo")
+        fetchRequest.returnsObjectsAsFaults = false
+        
+        do {
+            let results = try CoreDataManager.instance.managedObjectContext.fetch(fetchRequest)
+            return results
+        }catch {
+            print(error)
+            return []
+        }
+    }
+    
+    
     // MARK: - Заполнение полей
     func setLabels() {
-        cityNameLabel.text = currentCity
-        currentTempLabel.text = "\(Int((resultOneCity?.main.temp ?? 273) - 273)) º"
-        descriptionLabel.text = resultOneCity?.weather[0].description
-        feelsLikeLabel.text = "\(Int((resultOneCity?.main.feels_like ?? 0) - 273)) º"
-        minTempLabel.text = "\(Int((resultOneCity?.main.temp_min ?? 0) - 273)) º"
-        maxTempLabel.text = "\(Int((resultOneCity?.main.temp_max ?? 0) - 273)) º"
-        windSpeedLabel.text = "\(Int(resultOneCity?.wind.speed ?? 0)) м/с"
-        hamidityLabel.text = "\(Int(resultOneCity?.main.humidity ?? 0)) %"
+        let cityInfoArray = getDataOneCityInfo()
+        for cityInfo in cityInfoArray as! [NSManagedObject] {
+            if let cityName = cityInfo.value(forKey: "city_name") as? String {
+                if cityName == currentCity {
+                    cityNameLabel.text = cityInfo.value(forKey: "city_name") as? String
+                    currentTempLabel.text = cityInfo.value(forKey: "temp") as? String
+                    descriptionLabel.text = cityInfo.value(forKey: "main_description") as? String
+                    feelsLikeLabel.text = cityInfo.value(forKey: "feels_like") as? String
+                    minTempLabel.text = cityInfo.value(forKey: "temp_min") as? String
+                    maxTempLabel.text = cityInfo.value(forKey: "temp_max") as? String
+                    windSpeedLabel.text = cityInfo.value(forKey: "wind_speed") as? String
+                    hamidityLabel.text = cityInfo.value(forKey: "humidity") as? String
+            }
+            
+            }
+        }
+        print("Labels sets")
+        
+//        cityNameLabel.text = currentCity
+//        currentTempLabel.text = "\(Int((resultOneCity?.main.temp ?? 273) - 273)) º"
+//        descriptionLabel.text = resultOneCity?.weather[0].description
+//        feelsLikeLabel.text = "\(Int((resultOneCity?.main.feels_like ?? 0) - 273)) º"
+//        minTempLabel.text = "\(Int((resultOneCity?.main.temp_min ?? 0) - 273)) º"
+//        maxTempLabel.text = "\(Int((resultOneCity?.main.temp_max ?? 0) - 273)) º"
+//        windSpeedLabel.text = "\(Int(resultOneCity?.wind.speed ?? 0)) м/с"
+//        hamidityLabel.text = "\(Int(resultOneCity?.main.humidity ?? 0)) %"
     }
 
     /*

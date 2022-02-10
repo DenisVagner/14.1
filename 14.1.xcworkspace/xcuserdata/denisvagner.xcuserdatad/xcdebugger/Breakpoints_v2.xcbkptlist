@@ -46,8 +46,8 @@
             filePath = "14.1/d/Controller/CitiesViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "18"
-            endingLineNumber = "18"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
             landmarkName = "viewWillAppear(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -62,8 +62,8 @@
             filePath = "14.1/d/Controller/CitiesViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -119,114 +119,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "FC994CB2-FFFB-431C-BA58-96D2E36C88AC"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "14.1/d/Controller/CitiesViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "12"
-            endingLineNumber = "12"
-            landmarkName = "CitiesViewController"
-            landmarkType = "3">
-            <Locations>
-               <Location
-                  uuid = "FC994CB2-FFFB-431C-BA58-96D2E36C88AC - abb153d3cf6ed944"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "_4_1.CitiesViewController.citiesInFavoriteArray.getter : Swift.Array&lt;Swift.Optional&lt;Swift.String&gt;&gt;"
-                  moduleName = "14.1"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/denisvagner/Documents/Skillbox/Project/14.1/14.1/d/Controller/CitiesViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "10"
-                  endingLineNumber = "10"
-                  offsetFromSymbolStart = "90">
-               </Location>
-               <Location
-                  uuid = "FC994CB2-FFFB-431C-BA58-96D2E36C88AC - f651018887c39900"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "_4_1.CitiesViewController.citiesInFavoriteArray.setter : Swift.Array&lt;Swift.Optional&lt;Swift.String&gt;&gt;"
-                  moduleName = "14.1"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/denisvagner/Documents/Skillbox/Project/14.1/14.1/d/Controller/CitiesViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "10"
-                  endingLineNumber = "10"
-                  offsetFromSymbolStart = "116">
-               </Location>
-               <Location
-                  uuid = "FC994CB2-FFFB-431C-BA58-96D2E36C88AC - a260f1cfb115e81"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "_4_1.CitiesViewController.citiesInFavoriteArray.modify : Swift.Array&lt;Swift.Optional&lt;Swift.String&gt;&gt;"
-                  moduleName = "14.1"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/denisvagner/Documents/Skillbox/Project/14.1/14.1/d/Controller/CitiesViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "27">
-               </Location>
-               <Location
-                  uuid = "FC994CB2-FFFB-431C-BA58-96D2E36C88AC - 63dd18bc1ba4c78a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "_4_1.CitiesViewController.citiesInFavoriteArray.modify : Swift.Array&lt;Swift.Optional&lt;Swift.String&gt;&gt; with unmangled suffix &quot;.resume.0&quot;"
-                  moduleName = "14.1"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/denisvagner/Documents/Skillbox/Project/14.1/14.1/d/Controller/CitiesViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "10"
-                  endingLineNumber = "10"
-                  offsetFromSymbolStart = "15">
-               </Location>
-               <Location
-                  uuid = "FC994CB2-FFFB-431C-BA58-96D2E36C88AC - 9943f85cfff4017c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "_4_1.CitiesViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; _4_1.CitiesViewController"
-                  moduleName = "14.1"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/denisvagner/Documents/Skillbox/Project/14.1/14.1/d/Controller/CitiesViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "10"
-                  endingLineNumber = "10"
-                  offsetFromSymbolStart = "263">
-               </Location>
-               <Location
-                  uuid = "FC994CB2-FFFB-431C-BA58-96D2E36C88AC - 1ab2c565ec0349ef"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "_4_1.CitiesViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;_4_1.CitiesViewController&gt;"
-                  moduleName = "14.1"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/denisvagner/Documents/Skillbox/Project/14.1/14.1/d/Controller/CitiesViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "10"
-                  endingLineNumber = "10"
-                  offsetFromSymbolStart = "211">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "D6BA9D84-1476-42D8-A0BF-AE2D929C9D1E"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -250,8 +142,8 @@
             filePath = "14.1/d/Controller/CitiesViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "133"
-            endingLineNumber = "133"
+            startingLineNumber = "135"
+            endingLineNumber = "135"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -266,8 +158,8 @@
             filePath = "14.1/d/Controller/CitiesViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
             landmarkName = "refreshButtonPressed(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -275,87 +167,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "57BCC1D6-7AC7-4763-A891-953CD0D5010A"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "14.1/d/Controller/CitiesViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
-            landmarkName = "updateData()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "64FBFE68-A24B-43B1-836C-5D19CF6088F5"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "14.1/d/Controller/CitiesViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
-            landmarkName = "updateData()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "0EC8A9AC-F351-4AAA-B2D5-99AF7616D969"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "14.1/d/Controller/CitiesViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
-            landmarkName = "updateData()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "12A95F9B-D44B-4F1A-A8EC-26DD8CD3850C"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "14.1/d/Controller/CitiesViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
-            landmarkName = "updateData()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "DACC5599-3BBB-423E-B4CE-689977DC7C90"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "14.1/d/Controller/CitiesViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
-            landmarkName = "updateData()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "4DD4A41D-70AB-4F2F-96C3-7F464F03EC8F"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -371,31 +183,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "46F7DE53-3D97-4892-9D9F-369E9E11BC8B"
+            uuid = "0EC8A9AC-F351-4AAA-B2D5-99AF7616D969"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "14.1/d/Controller/CitiesViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
-            landmarkName = "updateData()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "9CA73186-8E12-4B37-A4DE-0D43178AB742"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "14.1/d/Controller/CitiesViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
             landmarkName = "updateData()"
             landmarkType = "7">
          </BreakpointContent>
@@ -404,7 +200,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "7815AFDA-6A59-41B3-B4BA-0DD19DB1A8A7"
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "14.1/d/Model/Network/WeatherNetworkRequest.swift"
@@ -426,9 +222,25 @@
             filePath = "14.1/d/Controller/CitiesViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
             landmarkName = "viewDidAppear(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "20DBB7B7-7D14-4197-9F37-38D3519267F8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "14.1/d/Model/Network/WeatherNetworkRequest.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "10"
+            endingLineNumber = "10"
+            landmarkName = "doRequest(urlString:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

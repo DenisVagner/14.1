@@ -6,7 +6,7 @@ class WeatherNetworkRequest {
     let myGroup = DispatchGroup()
     func doRequest (urlString: String, completion: @escaping (Result<MainResponce, Error>) -> Void) {
         
-        
+        myGroup.enter()
             AF.request(urlString).responseJSON { response in
                 guard let data = response.data else {
                     print("cant load data from network")

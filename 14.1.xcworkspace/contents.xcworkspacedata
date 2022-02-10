@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/denisvagner/Documents/Skillbox/Project/14.1/14.1/d/Model/CoreData/OneCityInfo+CoreDataClass.swift">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/denisvagner/Documents/Skillbox/Project/14.1/14.1/d/Model/CoreData/OneCityInfo+CoreDataProperties.swift">
+   </FileRef>
+   <FileRef
       location = "group:/Users/denisvagner/Documents/Skillbox/Project/14.1/14.1/d/Model/CoreData/CitiesInFavorite+CoreDataClass.swift">
    </FileRef>
    <FileRef

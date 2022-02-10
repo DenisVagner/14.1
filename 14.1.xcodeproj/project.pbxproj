@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		412AB6D427B564FE0073FF52 /* OneCityInfo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412AB6D227B564FE0073FF52 /* OneCityInfo+CoreDataClass.swift */; };
+		412AB6D527B564FE0073FF52 /* OneCityInfo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412AB6D327B564FE0073FF52 /* OneCityInfo+CoreDataProperties.swift */; };
 		4134B72C2795C98900E0118A /* 14.1.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4134B72A2795C98900E0118A /* 14.1.xcdatamodeld */; };
 		4134B72E2797D15C00E0118A /* CTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4134B72D2797D15C00E0118A /* CTableViewCell.swift */; };
 		4134B7302797D1C300E0118A /* CTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4134B72F2797D1C300E0118A /* CTableViewController.swift */; };
@@ -60,6 +62,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		412AB6D227B564FE0073FF52 /* OneCityInfo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "OneCityInfo+CoreDataClass.swift"; path = "/Users/denisvagner/Documents/Skillbox/Project/14.1/14.1/d/Model/CoreData/OneCityInfo+CoreDataClass.swift"; sourceTree = "<absolute>"; };
+		412AB6D327B564FE0073FF52 /* OneCityInfo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "OneCityInfo+CoreDataProperties.swift"; path = "/Users/denisvagner/Documents/Skillbox/Project/14.1/14.1/d/Model/CoreData/OneCityInfo+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		4134B72B2795C98900E0118A /* 14.1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = 14.1.xcdatamodel; sourceTree = "<group>"; };
 		4134B72D2797D15C00E0118A /* CTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CTableViewCell.swift; path = 14.1/c/Model/CTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		4134B72F2797D1C300E0118A /* CTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTableViewController.swift; sourceTree = "<group>"; };
@@ -240,6 +244,8 @@
 		415289F727AAF42800AAFFA4 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				412AB6D227B564FE0073FF52 /* OneCityInfo+CoreDataClass.swift */,
+				412AB6D327B564FE0073FF52 /* OneCityInfo+CoreDataProperties.swift */,
 				415289FB27ACE9E100AAFFA4 /* CitiesInFavorite+CoreDataClass.swift */,
 				415289FA27ACE9E100AAFFA4 /* CitiesInFavorite+CoreDataProperties.swift */,
 				415289F127AAE62B00AAFFA4 /* SearchingCity+CoreDataClass.swift */,
@@ -621,6 +627,7 @@
 				415289E627A56BBC00AAFFA4 /* SearchNetworkRequest.swift in Sources */,
 				415289F927AAF47800AAFFA4 /* CoreDataManager.swift in Sources */,
 				415289FD27ACE9E200AAFFA4 /* CitiesInFavorite+CoreDataProperties.swift in Sources */,
+				412AB6D427B564FE0073FF52 /* OneCityInfo+CoreDataClass.swift in Sources */,
 				413E7C5D277AD0A500293746 /* bViewController.swift in Sources */,
 				4134B72E2797D15C00E0118A /* CTableViewCell.swift in Sources */,
 				41D94A11277B6F68001A510F /* aData.swift in Sources */,
@@ -637,6 +644,7 @@
 				4134B73A279BE96400E0118A /* WeatherData.swift in Sources */,
 				4134B74027A30B9A00E0118A /* SearchCityData.swift in Sources */,
 				4134B734279B14D100E0118A /* DetailInfoViewController.swift in Sources */,
+				412AB6D527B564FE0073FF52 /* OneCityInfo+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

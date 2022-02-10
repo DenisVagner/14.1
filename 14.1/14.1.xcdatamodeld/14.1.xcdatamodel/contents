@@ -5,6 +5,16 @@
         <attribute name="name_en" optional="YES" attributeType="String"/>
         <attribute name="name_ru" optional="YES" attributeType="String"/>
     </entity>
+    <entity name="OneCityInfo" representedClassName=".OneCityInfo" syncable="YES">
+        <attribute name="city_name" optional="YES" attributeType="String"/>
+        <attribute name="feels_like" optional="YES" attributeType="String"/>
+        <attribute name="humidity" optional="YES" attributeType="String"/>
+        <attribute name="main_description" optional="YES" attributeType="String"/>
+        <attribute name="temp" optional="YES" attributeType="String"/>
+        <attribute name="temp_max" optional="YES" attributeType="String"/>
+        <attribute name="temp_min" optional="YES" attributeType="String"/>
+        <attribute name="wind_speed" optional="YES" attributeType="String"/>
+    </entity>
     <entity name="SearchingCity" representedClassName=".SearchingCity" syncable="YES">
         <attribute name="country" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
@@ -17,5 +27,6 @@
         <element name="CitiesInFavorite" positionX="144" positionY="99" width="128" height="74"/>
         <element name="SearchingCity" positionX="275.2028198242188" positionY="56.62847900390625" width="128" height="88"/>
         <element name="Task" positionX="-63" positionY="-18" width="128" height="58"/>
+        <element name="OneCityInfo" positionX="108" positionY="63" width="128" height="149"/>
     </elements>
 </model>

@@ -50,21 +50,21 @@ class SearchCityViewController: UIViewController {
     }
     
     
-    // Извлечение записей
-    func getData() {
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "CitiesInFavorite")
-        fetchRequest.returnsObjectsAsFaults = false
-        
-        do {
-            let results = try CoreDataManager.instance.managedObjectContext.fetch(fetchRequest) //(fetchRequest) //self.managedObjectContext.execute(fetchRequest)
-            
-            //            for result in results as! [NSManagedObject] {
-            //                print("name = \(result.value(forKey: "name_en") ?? "")")
-            //            }
-        } catch {
-            print(error)
-        }
-    }
+//    // Извлечение записей
+//    func getData() {
+//        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "CitiesInFavorite")
+//        fetchRequest.returnsObjectsAsFaults = false
+//
+//        do {
+//           // let results = try CoreDataManager.instance.managedObjectContext.fetch(fetchRequest) //(fetchRequest) //self.managedObjectContext.execute(fetchRequest)
+//
+//            //            for result in results as! [NSManagedObject] {
+//            //                print("name = \(result.value(forKey: "name_en") ?? "")")
+//            //            }
+//        } catch {
+//            print(error)
+//        }
+//    }
 }
 
 // MARK: - Table setup
