@@ -28,30 +28,32 @@ class DetailInfoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        activIndicator.startAnimating()
+        setLabels()
+        print("Labels sets from database")
         loadCityInfoFromNetwork()
         
     }
     
     // запрос данных по нажатому городу
     func loadCityInfoFromNetwork() {
-        //activityIndicator.isHidden = false
+        activIndicator.startAnimating()
         networkRequest.doRequest(urlString: urlString) { [weak self] (result) in
             switch result {
             case .success(let cityInfo):
                 self?.resultOneCity = cityInfo
-                print("Data gets")
                 sleep(3)
+                print("Data recived")
                 self?.setValuesSearchingCity()
                 self?.setLabels()
                 self?.activIndicator.stopAnimating()
             case .failure(let error):
                 print(error)
+                self?.activIndicator.stopAnimating()
             }
         }
     }
     
-    // Установка значения атрибутов
+    //MARK: Установка значения атрибутов
     func setValuesSearchingCity (){
         let managedObjectOneCityInfo = OneCityInfo()
         managedObjectOneCityInfo.city_name = currentCity
@@ -71,7 +73,6 @@ class DetailInfoViewController: UIViewController {
     func getDataOneCityInfo() -> [NSFetchRequestResult] {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "OneCityInfo")
         fetchRequest.returnsObjectsAsFaults = false
-        
         do {
             let results = try CoreDataManager.instance.managedObjectContext.fetch(fetchRequest)
             return results
@@ -96,30 +97,20 @@ class DetailInfoViewController: UIViewController {
                     maxTempLabel.text = cityInfo.value(forKey: "temp_max") as? String
                     windSpeedLabel.text = cityInfo.value(forKey: "wind_speed") as? String
                     hamidityLabel.text = cityInfo.value(forKey: "humidity") as? String
-            }
-            
+                }
             }
         }
         print("Labels sets")
-        
-//        cityNameLabel.text = currentCity
-//        currentTempLabel.text = "\(Int((resultOneCity?.main.temp ?? 273) - 273)) º"
-//        descriptionLabel.text = resultOneCity?.weather[0].description
-//        feelsLikeLabel.text = "\(Int((resultOneCity?.main.feels_like ?? 0) - 273)) º"
-//        minTempLabel.text = "\(Int((resultOneCity?.main.temp_min ?? 0) - 273)) º"
-//        maxTempLabel.text = "\(Int((resultOneCity?.main.temp_max ?? 0) - 273)) º"
-//        windSpeedLabel.text = "\(Int(resultOneCity?.wind.speed ?? 0)) м/с"
-//        hamidityLabel.text = "\(Int(resultOneCity?.main.humidity ?? 0)) %"
     }
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

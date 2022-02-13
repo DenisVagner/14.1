@@ -12,13 +12,17 @@ class CitiesViewController: UIViewController {
     var result: MainResponce? = nil
     let networkRequest = WeatherNetworkRequest()
     
+    //Переменная для обновления таблицы 1 раз после получения данных о погоде по каждому городу
+    var tmpCount = 0
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.updateData()
-     
-        
+    tmpCount = 0
     }
+    
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.citiesInFavoriteTableView.reloadData()
@@ -35,20 +39,13 @@ class CitiesViewController: UIViewController {
     
 //MARK: - Refresh button pressed
     @IBAction func refreshButtonPressed(_ sender: Any) {
-        //let myQueue = DispatchQueue(label: "serial")
-        
         updateData()
     }
+    
+    
     func updateData() {
         activityInd.startAnimating()
-        myGroup.enter()
         updateTempCitiesInFavorite()
-        
-        
-        myGroup.leave()
-        self.citiesInFavoriteTableView.reloadData()
-        print("Table reloaded from func updateData")
-        activityInd.stopAnimating()
     }
     
     
@@ -57,16 +54,21 @@ class CitiesViewController: UIViewController {
     func updateTempCitiesInFavorite() {
         let citiesData = self.getDataCitiesInFavorite()
         for city in citiesData as! [NSManagedObject] {
-           // myGroup.enter()
-       //     DispatchQueue.global(qos: .background).async {
                 self.networkRequest.doRequest(urlString: "https://api.openweathermap.org/data/2.5/weather?q=\(city.value(forKey: "name_en") ?? "")&appid=12208d4516ef042a2be4ddbfd1d9695d") { result in
                     switch result {
                     case .success(let cityInfo):
                         city.setValue(String(Int(cityInfo.main.temp - 273)), forKey: "cur_temp")
                         CoreDataManager.instance.saveContext()
                         print("Context saved (temp): ", Int(cityInfo.main.temp - 273))
-                        self.citiesInFavoriteTableView.reloadData()
-                        print("Table reloaded from updateTempCitiesInFavorite")
+                        self.tmpCount += 1
+                        print(self.tmpCount)
+                        if self.tmpCount == citiesData.count {
+                            self.citiesInFavoriteTableView.reloadData()
+                            print("Table reloaded from updateTempCitiesInFavorite")
+                            self.activityInd.stopAnimating()
+                            self.tmpCount = 0
+                        }
+                        
                     case .failure(let error):
                         //cell1.curTempInFavLabel.text = "--"
                         print(error)
