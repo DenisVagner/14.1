@@ -63,6 +63,7 @@ class CitiesViewController: UIViewController {
                         self.tmpCount += 1
                         print(self.tmpCount)
                         if self.tmpCount == citiesData.count {
+                            sleep(3)
                             self.citiesInFavoriteTableView.reloadData()
                             print("Table reloaded from updateTempCitiesInFavorite")
                             self.activityInd.stopAnimating()
