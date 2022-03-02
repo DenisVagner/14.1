@@ -12,6 +12,7 @@ class DetailInfoViewController: UIViewController {
         }
     }
     let networkRequest = WeatherNetworkRequest()
+    var imageCache = NSCache<AnyObject, AnyObject>()
     
     
     // Labels

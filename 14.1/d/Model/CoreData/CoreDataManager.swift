@@ -78,7 +78,7 @@ class CoreDataManager {
     // MARK: - Core Data Saving support
     
     func saveContext () {
-        let context = managedObjectContext// persistentContainer.viewContext
+        let context = managedObjectContext
         if context.hasChanges {
             do {
                 try context.save()
